@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鄂尔多斯 · 4天3晚浪漫之旅</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f3c;
+            --primary-light: #2d8a5e;
+            --accent: #c9a227;
+            --accent-light: #e8d48b;
+            --sand: #d4a574;
+            --sand-light: #f5e6d3;
+            --dark: #1a1a2e;
+            --text: #333;
+            --text-light: #666;
+            --bg: #faf8f5;
+            --card-bg: #fff;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, #1a5f3c 0%, #0d3321 50%, #1a1a2e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://kimi-web-img.moonshot.cn/img/icrvb3jy.xinmedia.com/fd38a0c6b6fb403c63549907293a969f2cd9fecf.jpeg') center/cover;
+            opacity: 0.25;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 162, 39, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent-light);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-meta .icon {
+            font-size: 1.2rem;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            opacity: 0.6;
+            animation: bounce 2s infinite;
+            font-size: 0.85rem;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2rem;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Overview Cards */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .overview-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .overview-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .overview-card h3 {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .overview-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Flight Info */
+        .flight-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            color: white;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flight-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(201, 162, 39, 0.1);
+            border-radius: 50%;
+        }
+
+        .flight-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .flight-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .flight-airport {
+            text-align: center;
+        }
+
+        .flight-airport .code {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .flight-airport .name {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 0.2rem;
+        }
+
+        .flight-airport .time {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.3rem;
+        }
+
+        .flight-arrow {
+            text-align: center;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .flight-arrow .flight-no {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: 0.3rem;
+        }
+
+        .flight-note {
+            background: rgba(201, 162, 39, 0.15);
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.2rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary), var(--sand), var(--accent));
+            border-radius: 3px;
+        }
+
+        .day-card {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 80px;
+        }
+
+        .day-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .day-marker {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--card-bg);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .day-marker .day-num {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .day-marker .day-label {
+            font-size: 0.6rem;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        .day-content {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .day-header {
+            padding: 1.8rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            position: relative;
+        }
+
+        .day-header.day2 { background: linear-gradient(135deg, #1a5f3c 0%, #3a8a5e 100%); }
+        .day-header.day3 { background: linear-gradient(135deg, #c9a227 0%, #e8c547 100%); color: #333; }
+        .day-header.day4 { background: linear-gradient(135deg, #d4a574 0%, #e8c9a0 100%); color: #333; }
+        .day-header.day5 { background: linear-gradient(135deg, #4a5568 0%, #718096 100%); }
+
+        .day-header h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .day-header .day-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .day-header .day-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .day-body {
+            padding: 2rem;
+        }
+
+        .day-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .day-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .day-image-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .schedule-item {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .schedule-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .schedule-time {
+            min-width: 80px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .schedule-content h4 {
+            font-size: 1.05rem;
+            color: var(--dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .schedule-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .schedule-content ul {
+            margin-top: 0.5rem;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .schedule-content ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        .highlight-box {
+            background: var(--sand-light);
+            border-left: 4px solid var(--sand);
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .highlight-box .highlight-title {
+            font-weight: 700;
+            color: var(--sand);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Accommodation & Transport */
+        .info-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .info-section h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-table th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .info-table th:first-child { border-radius: 10px 0 0 0; }
+        .info-table th:last-child { border-radius: 0 10px 0 0; }
+
+        .info-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        .info-table tr:last-child td:first-child { border-radius: 0 0 0 10px; }
+        .info-table tr:last-child td:last-child { border-radius: 0 0 10px 0; }
+
+        .info-table tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .info-table tr:hover {
+            background: #f0f7f4;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--primary-light);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            margin-right: 0.3rem;
+        }
+
+        .tag.accent {
+            background: var(--accent);
+            color: #333;
+        }
+
+        .tag.sand {
+            background: var(--sand);
+            color: white;
+        }
+
+        /* Packing List */
+        .packing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .packing-card {
+            background: #fafafa;
+            border-radius: 14px;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+        }
+
+        .packing-card h4 {
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .packing-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .packing-card ul li {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            padding: 0.4rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .packing-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .footer .emoji-row {
+            font-size: 2rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .hero-meta { gap: 1rem; font-size: 0.85rem; }
+            .day-card { padding-left: 60px; }
+            .day-marker { width: 45px; height: 45px; }
+            .day-marker .day-num { font-size: 1rem; }
+            .day-image-grid { grid-template-columns: 1fr; }
+            .flight-row { grid-template-columns: 1fr; text-align: center; }
+            .schedule-item { flex-direction: column; gap: 0.5rem; }
+            .schedule-time { min-width: auto; }
+            .day-header .day-meta { gap: 0.8rem; }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .day-card {
+            animation: fadeIn 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .day-card:nth-child(1) { animation-delay: 0.1s; }
+        .day-card:nth-child(2) { animation-delay: 0.2s; }
+        .day-card:nth-child(3) { animation-delay: 0.3s; }
+        .day-card:nth-child(4) { animation-delay: 0.4s; }
+        .day-card:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">✈️ 4天3晚 · 深度探索</div>
+        <h1>鄂尔多斯浪漫之旅</h1>
+        <p class="hero-subtitle">草原星空 · 沙漠狂欢 · 蒙元文化</p>
+        <div class="hero-meta">
+            <span><span class="icon">👫</span> 2对情侣 · 4人同行</span>
+            <span><span class="icon">🚗</span> 全程租车自驾</span>
+            <span><span class="icon">🏠</span> 2间房</span>
+            <span><span class="icon">📅</span> 6.19 - 6.23</span>
+        </div>
+    </div>
+    <div class="scroll-hint">↓ 向下滚动查看详细攻略</div>
+</section>
+
+<div class="container">
+
+<!-- Overview -->
+<section class="section">
+    <h2 class="section-title">行程概览</h2>
+    <p class="section-subtitle">根据天气精准优化，晴天全力户外，雨夜安心休息</p>
+
+    <div class="overview-grid">
+        <div class="overview-card">
+            <div class="icon">🏨</div>
+            <h3>Day 1 · 6月19日</h3>
+            <p>深夜抵达伊金霍洛机场<br>入住机场附近酒店</p>
+        </div>
+        <div class="overview-card">
+            <div class="icon">🌾</div>
+            <h3>Day 2 · 6月20日</h3>
+            <p>全天晴 ☀️<br>鄂尔多斯草原深度体验</p>
+        </div>
+        <div class="overview-card">
+            <div class="icon">🏜️</div>
+            <h3>Day 3 · 6月21日</h3>
+            <p>白天晴 / 晚上雨<br>响沙湾沙漠畅玩</p>
+        </div>
+        <div class="overview-card">
+            <div class="icon">🏛️</div>
+            <h3>Day 4 · 6月22日</h3>
+            <p>多云 ☁️<br>成吉思汗陵 + 康巴什漫步</p>
+        </div>
+        <div class="overview-card">
+            <div class="icon">🛫</div>
+            <h3>Day 5 · 6月23日</h3>
+            <p>阴天 · 室内休闲<br>晚上返程</p>
+        </div>
+    </div>
+</section>
+
+<!-- Flight Info -->
+<section class="section" style="padding-top: 0;">
+    <div class="flight-section">
+        <div class="flight-header">
+            <span>✈️</span> 航班信息
+        </div>
+
+        <div class="flight-row">
+            <div class="flight-airport">
+                <div class="code">XIY</div>
+                <div class="name">西安咸阳机场</div>
+                <div class="time">待定</div>
+            </div>
+            <div class="flight-arrow">
+                <div>✈️</div>
+                <div class="flight-no">东航 MU204</div>
+            </div>
+            <div class="flight-airport">
+                <div class="code">DSN</div>
+                <div class="name">鄂尔多斯伊金霍洛机场</div>
+                <div class="time">23:00 抵达</div>
+            </div>
+        </div>
+
+        <div class="flight-row">
+            <div class="flight-airport">
+                <div class="code">DSN</div>
+                <div class="name">鄂尔多斯伊金霍洛机场</div>
+                <div class="time">19:00 或 23:00 起飞</div>
+            </div>
+            <div class="flight-arrow">
+                <div>✈️</div>
+                <div class="flight-no">返程航班待定</div>
+            </div>
+            <div class="flight-airport">
+                <div class="code">XIY</div>
+                <div class="name">西安咸阳机场</div>
+                <div class="time">待定</div>
+            </div>
+        </div>
+
+        <div class="flight-note">
+            <strong>💡 温馨提示：</strong>深夜抵达后建议直接入住机场附近酒店休息，第二天一早机场取车，开启自驾之旅。返程航班建议优先选择19:00，时间更从容。
+        </div>
+    </div>
+</section>
+
+<!-- Timeline -->
+<section class="section">
+    <h2 class="section-title">每日详细行程</h2>
+    <p class="section-subtitle">精心安排，让每一段天气都恰到好处</p>
+
+    <div class="timeline">
+
+        <!-- Day 1 -->
+        <div class="day-card">
+            <div class="day-marker">
+                <div class="day-num">1</div>
+                <div class="day-label">DAY</div>
+            </div>
+            <div class="day-content">
+                <div class="day-header">
+                    <h2>深夜抵达 · 养精蓄锐</h2>
+                    <div class="day-meta">
+                        <span>📅 6月19日 · 周五</span>
+                        <span>🏨 机场附近酒店</span>
+                        <span>🚗 次日机场取车</span>
+                    </div>
+                </div>
+                <div class="day-body">
+                    <div class="schedule-item">
+                        <div class="schedule-time">23:00</div>
+                        <div class="schedule-content">
+                            <h4>🛬 落地伊金霍洛机场</h4>
+                            <p>东航 MU204 航班抵达鄂尔多斯伊金霍洛机场。机场规模不大，取行李、出站都很方便。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">23:30</div>
+                        <div class="schedule-content">
+                            <h4>🚕 前往机场附近酒店</h4>
+                            <p>步行或短途打车前往机场周边酒店（约5-10分钟）。提前告知酒店深夜抵达，确保顺利入住。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">00:00</div>
+                        <div class="schedule-content">
+                            <h4>🌙 办理入住，早点休息</h4>
+                            <p>如果饿了，可以找找周边还在营业的烧烤摊或24小时便利店垫一口。养足精神，明天开启草原之旅！</p>
+                        </div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-title">💡 贴心提示</div>
+                        机场附近酒店选择较多，推荐预订含早餐的酒店，第二天取车前可以饱餐一顿。记得提前联系租车公司确认次日取车时间和地点。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card">
+            <div class="day-marker">
+                <div class="day-num">2</div>
+                <div class="day-label">DAY</div>
+            </div>
+            <div class="day-content">
+                <div class="day-header day2">
+                    <h2>草原全天 ⭐ 晴天王牌日</h2>
+                    <div class="day-meta">
+                        <span>📅 6月20日 · 周六</span>
+                        <span>☀️ 全天晴</span>
+                        <span>🏨 草原蒙古包</span>
+                        <span>🚗 自驾约2小时</span>
+                    </div>
+                </div>
+                <div class="day-body">
+                    <img src="https://kimi-web-img.moonshot.cn/img/icrvb3jy.xinmedia.com/fd38a0c6b6fb403c63549907293a969f2cd9fecf.jpeg" alt="草原蒙古包星空" class="day-image">
+
+                    <div class="schedule-item">
+                        <div class="schedule-time">08:00</div>
+                        <div class="schedule-content">
+                            <h4>🍳 酒店早餐 + 机场取车</h4>
+                            <p>在酒店享用早餐后，前往机场租车点取车。检查车况、确认保险，4人分摊租车费用非常划算。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">09:00</div>
+                        <div class="schedule-content">
+                            <h4>🚗 出发前往鄂尔多斯草原</h4>
+                            <p>从机场出发，自驾前往鄂尔多斯草原旅游区（车程约2小时）。沿途可以欣赏鄂尔多斯的草原风光。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">11:00</div>
+                        <div class="schedule-content">
+                            <h4>🐎 草原初体验</h4>
+                            <p>抵达草原后，先办理蒙古包入住。随后在草原上骑马、射箭，感受一望无际的草原风光。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">12:30</div>
+                        <div class="schedule-content">
+                            <h4>🍖 草原午餐</h4>
+                            <p>品尝地道的草原美食：手把肉、奶茶、奶皮子等。两对情侣可以边吃边聊，享受悠闲时光。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">14:00</div>
+                        <div class="schedule-content">
+                            <h4>🎭 实景马术剧《英雄》</h4>
+                            <p>观看震撼的实景马术剧《英雄》——场面宏大，马术精湛，堪比好莱坞大片！这是草原之行的必看项目。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">15:30</div>
+                        <div class="schedule-content">
+                            <h4>🎯 草原娱乐项目</h4>
+                            <ul>
+                                <li>滑草 —— 从草坡上飞驰而下</li>
+                                <li>卡丁车 —— 在草原上飙车</li>
+                                <li>穿蒙古袍拍照 —— 两对情侣拍一组草原大片</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">18:30</div>
+                        <div class="schedule-content">
+                            <h4>🔥 诈马宴 + 篝火晚会</h4>
+                            <p>参加隆重的诈马宴（烤全羊仪式），感受蒙古族的热情好客。餐后参加篝火晚会，围着篝火唱歌跳舞。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">21:00</div>
+                        <div class="schedule-content">
+                            <h4>🌌 草原星空夜</h4>
+                            <p>入住蒙古包，抬头就是满天繁星。草原的星空是城市里绝对看不到的浪漫，两对情侣可以一起数星星、拍星空大片。</p>
+                        </div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-title">💡 草原小贴士</div>
+                        草原昼夜温差大，记得带<strong>薄外套</strong>，晚上看星星用得上。蒙古包条件相对简单，建议自带洗漱用品和一次性床单。手机信号可能不稳定，提前下载好离线地图。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+            <div class="day-marker">
+                <div class="day-num">3</div>
+                <div class="day-label">DAY</div>
+            </div>
+            <div class="day-content">
+                <div class="day-header day3">
+                    <h2>响沙湾 · 沙漠迪士尼</h2>
+                    <div class="day-meta">
+                        <span>📅 6月21日 · 周日</span>
+                        <span>☀️ 白天晴 / 🌧️ 晚上有雨</span>
+                        <span>🏨 达拉特旗/东胜区酒店</span>
+                        <span>🚗 自驾约2.5-3小时</span>
+                    </div>
+                </div>
+                <div class="day-body">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.ixsw.cn/8d1fa5e1e1b54b27750a6ef382d2c3fbcb7b55fc.jpg" alt="响沙湾仙沙岛" class="day-image">
+
+                    <div class="schedule-item">
+                        <div class="schedule-time">08:00</div>
+                        <div class="schedule-content">
+                            <h4>🌅 草原晨景 + 早餐</h4>
+                            <p>早起欣赏草原日出（如果起得来的话），在蒙古包享用早餐后收拾行李，准备前往响沙湾。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">09:00</div>
+                        <div class="schedule-content">
+                            <h4>🚗 出发前往响沙湾</h4>
+                            <p>从草原出发，自驾前往响沙湾（车程约2.5-3小时）。途中可以在服务区休息补给。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">12:00</div>
+                        <div class="schedule-content">
+                            <h4>🏜️ 抵达响沙湾，午餐</h4>
+                            <p>抵达后先在景区附近用餐，补充能量。推荐尝试当地的沙漠特色餐饮。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">13:00</div>
+                        <div class="schedule-content">
+                            <h4>🎢 仙沙岛 · 刺激冒险</h4>
+                            <ul>
+                                <li>沙漠越野车 —— 在沙丘间驰骋</li>
+                                <li>高空滑索 —— 飞跃沙漠上空</li>
+                                <li>骑骆驼 —— 感受丝绸之路的浪漫</li>
+                                <li>沙漠过山车 —— 尖叫不断</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">15:30</div>
+                        <div class="schedule-content">
+                            <h4>💦 悦沙岛 · 休闲玩水</h4>
+                            <ul>
+                                <li>沙漠水上乐园 —— 沙漠中的清凉世界</li>
+                                <li>沙雕园 —— 欣赏精美沙雕艺术</li>
+                                <li>果老剧场 —— 观看精彩表演</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">18:00</div>
+                        <div class="schedule-content">
+                            <h4>🌇 沙漠日落</h4>
+                            <p>在沙漠高处欣赏壮丽的日落，金色的沙丘在夕阳下格外迷人。两对情侣可以拍一组沙漠剪影大片。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">19:00</div>
+                        <div class="schedule-content">
+                            <h4>🚗 前往达拉特旗/东胜区酒店</h4>
+                            <p>游玩结束后，自驾前往达拉特旗或东胜区的酒店入住（约1小时车程）。晚上下雨也不怕，在酒店舒舒服服休息。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">20:00</div>
+                        <div class="schedule-content">
+                            <h4>🍲 涮羊肉暖身</h4>
+                            <p>晚上找家当地餐厅吃顿涮羊肉暖暖身子，为明天的文化之旅储备能量。</p>
+                        </div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-title">💡 沙漠必备</div>
+                        沙漠里注意<strong>防晒、防风沙</strong>，带上墨镜和面巾。手机相机记得套上<strong>防沙袋</strong>。穿凉鞋或凉拖更方便，但也要注意防晒。多喝水，沙漠干燥容易脱水。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card">
+            <div class="day-marker">
+                <div class="day-num">4</div>
+                <div class="day-label">DAY</div>
+            </div>
+            <div class="day-content">
+                <div class="day-header day4">
+                    <h2>文化探访 · 多云不晒</h2>
+                    <div class="day-meta">
+                        <span>📅 6月22日 · 周一</span>
+                        <span>☁️ 多云</span>
+                        <span>🏨 康巴什区酒店</span>
+                        <span>🚗 自驾约1小时</span>
+                    </div>
+                </div>
+                <div class="day-body">
+                    <div class="day-image-grid">
+                        <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/79bc7cd7f909933b1c3af0dd110966728a7995e2.jpg" alt="成吉思汗陵">
+                        <img src="https://kimi-web-img.moonshot.cn/img/images.adsttc.com/ba79e013c1f1bebe837c6965ee2a517b551787ca.jpg" alt="鄂尔多斯博物馆">
+                    </div>
+
+                    <div class="schedule-item">
+                        <div class="schedule-time">09:00</div>
+                        <div class="schedule-content">
+                            <h4>🚗 前往成吉思汗陵</h4>
+                            <p>从达拉特旗/东胜区出发，自驾前往成吉思汗陵（车程约1小时）。这里是蒙古族的精神圣地，也是了解一代天骄历史的最佳场所。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">10:00</div>
+                        <div class="schedule-content">
+                            <h4>🏛️ 参观成吉思汗陵</h4>
+                            <p>参观气势恢宏的陵宫建筑，了解成吉思汗的传奇一生。如果赶上<strong>达尔扈特祭祀仪式</strong>，会是非常独特的文化体验。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">12:30</div>
+                        <div class="schedule-content">
+                            <h4>🍜 午餐</h4>
+                            <p>在景区附近或返回途中用餐，推荐尝试蒙餐或当地特色面食。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">14:00</div>
+                        <div class="schedule-content">
+                            <h4>🚗 返回康巴什区</h4>
+                            <p>自驾返回康巴什区，入住酒店后稍作休息。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">15:30</div>
+                        <div class="schedule-content">
+                            <h4>🏛️ 鄂尔多斯博物馆</h4>
+                            <p>参观由MAD建筑事务所设计的鄂尔多斯博物馆，建筑外形像一块巨大的陨石，非常出片！馆内展示了鄂尔多斯的历史文化和自然资源。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">17:00</div>
+                        <div class="schedule-content">
+                            <h4>🌊 乌兰木伦湖边散步</h4>
+                            <p>在乌兰木伦湖边漫步，感受这座"花园城市"的悠闲与美丽。湖边有很多拍照打卡点。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">19:00</div>
+                        <div class="schedule-content">
+                            <h4>🍖 蒙餐晚餐 + 音乐喷泉</h4>
+                            <p>在康巴什区品尝正宗蒙餐：手把肉、奶茶、血肠。饭后去看<strong>乌兰木伦湖音乐喷泉</strong>（夏季通常开放），夜景非常漂亮。</p>
+                        </div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-title">💡 文化游贴士</div>
+                        成吉思汗陵参观时请尊重当地习俗，保持安静。鄂尔多斯博物馆<strong>周一可能闭馆</strong>，建议提前确认开放时间。音乐喷泉通常在夏季晚上8点左右开始，持续约30分钟。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="day-card">
+            <div class="day-marker">
+                <div class="day-num">5</div>
+                <div class="day-label">DAY</div>
+            </div>
+            <div class="day-content">
+                <div class="day-header day5">
+                    <h2>轻松返程 · 从容告别</h2>
+                    <div class="day-meta">
+                        <span>📅 6月23日 · 周二</span>
+                        <span>☁️ 阴天</span>
+                        <span>🏨 返程</span>
+                        <span>🚗 机场还车</span>
+                    </div>
+                </div>
+                <div class="day-body">
+                    <div class="day-image-grid">
+                        <img src="https://kimi-web-img.moonshot.cn/img/bkimg.cdn.bcebos.com/f958f902eb843ae5ad417903945f184671ce7864" alt="乌兰活佛府">
+                        <img src="https://kimi-web-img.moonshot.cn/img/dimg04.c-ctrip.com/157b189880b060b80937e65974a5dc1ac4d38d0b.jpg" alt="乌兰木伦湖音乐喷泉">
+                    </div>
+
+                    <div class="schedule-item">
+                        <div class="schedule-time">09:00</div>
+                        <div class="schedule-content">
+                            <h4>🏯 乌兰活佛府（可选）</h4>
+                            <p>时间宽裕的话，可以去乌兰活佛府转转。藏式建筑非常精美，适合悠闲逛逛、拍照打卡。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">11:00</div>
+                        <div class="schedule-content">
+                            <h4>🛍️ 伴手礼采购</h4>
+                            <p>在康巴什区的商场或特产店购买伴手礼：</p>
+                            <ul>
+                                <li>奶制品 —— 奶片、奶皮、奶酪</li>
+                                <li>牛肉干 —— 鄂尔多斯特产</li>
+                                <li>羊绒制品 —— 围巾、手套</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">12:30</div>
+                        <div class="schedule-content">
+                            <h4>🍲 告别午餐</h4>
+                            <p>推荐吃一顿丰盛的<strong>涮羊肉</strong>作为告别餐，为这次旅程画上圆满句号。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">14:00</div>
+                        <div class="schedule-content">
+                            <h4>🛒 最后补给 / 休息</h4>
+                            <p>如果返程航班是23:00，时间还很充裕。可以在酒店休息，或去咖啡馆坐坐，整理旅行照片。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">18:00</div>
+                        <div class="schedule-content">
+                            <h4>🚗 前往机场</h4>
+                            <p>自驾前往伊金霍洛机场（约20-30分钟），在机场还车。建议提前2小时到达机场。</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">19:00 / 23:00</div>
+                        <div class="schedule-content">
+                            <h4>✈️ 起飞返程</h4>
+                            <p>根据最终确定的航班时间登机，返回西安。结束这段难忘的鄂尔多斯之旅！</p>
+                        </div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-title">💡 返程提醒</div>
+                        如果航班是<strong>19:00</strong>，建议16:00就从市区出发，留足时间还车和办理登机。如果航班是<strong>23:00</strong>，时间非常宽裕，可以慢慢享受最后一天的悠闲时光。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Accommodation & Transport -->
+<section class="section">
+    <div class="info-section">
+        <h2><span>🏨</span> 住宿安排（2间房 · 4人）</h2>
+        <table class="info-table">
+            <thead>
+                <tr>
+                    <th>日期</th>
+                    <th>住宿地点</th>
+                    <th>房型</th>
+                    <th>理由</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>6/19（周五）</td>
+                    <td>机场附近酒店</td>
+                    <td><span class="tag">2间标准间</span></td>
+                    <td>深夜抵达，就近休息，次日机场取车方便</td>
+                </tr>
+                <tr>
+                    <td>6/20（周六）</td>
+                    <td>草原蒙古包</td>
+                    <td><span class="tag accent">2间蒙古包</span></td>
+                    <td>晴天必须住一晚，体验草原星空和篝火晚会</td>
+                </tr>
+                <tr>
+                    <td>6/21（周日）</td>
+                    <td>达拉特旗/东胜区酒店</td>
+                    <td><span class="tag">2间标准间</span></td>
+                    <td>离响沙湾近，晚上下雨时已在酒店舒适休息</td>
+                </tr>
+                <tr>
+                    <td>6/22（周一）</td>
+                    <td>康巴什区酒店</td>
+                    <td><span class="tag">2间标准间</span></td>
+                    <td>方便第二天室内活动和前往机场</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="info-section">
+        <h2><span>🚗</span> 交通方案</h2>
+        <table class="info-table">
+            <thead>
+                <tr>
+                    <th>日期</th>
+                    <th>行程</th>
+                    <th>交通方式</th>
+                    <th>预计时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>6/19</td>
+                    <td>机场 → 酒店</td>
+                    <td><span class="tag sand">打车/步行</span></td>
+                    <td>5-10分钟</td>
+                </tr>
+                <tr>
+                    <td>6/20</td>
+                    <td>机场 → 鄂尔多斯草原</td>
+                    <td><span class="tag">租车自驾</span></td>
+                    <td>约2小时</td>
+                </tr>
+                <tr>
+                    <td>6/21</td>
+                    <td>草原 → 响沙湾</td>
+                    <td><span class="tag">租车自驾</span></td>
+                    <td>约2.5-3小时</td>
+                </tr>
+                <tr>
+                    <td>6/21</td>
+                    <td>响沙湾 → 达拉特旗/东胜</td>
+                    <td><span class="tag">租车自驾</span></td>
+                    <td>约1小时</td>
+                </tr>
+                <tr>
+                    <td>6/22</td>
+                    <td>酒店 → 成吉思汗陵</td>
+                    <td><span class="tag">租车自驾</span></td>
+                    <td>约1小时</td>
+                </tr>
+                <tr>
+                    <td>6/22</td>
+                    <td>成吉思汗陵 → 康巴什</td>
+                    <td><span class="tag">租车自驾</span></td>
+                    <td>约40分钟</td>
+                </tr>
+                <tr>
+                    <td>6/23</td>
+                    <td>康巴什 → 机场</td>
+                    <td><span class="tag">租车自驾</span></td>
+                    <td>约20-30分钟</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="highlight-box" style="margin-top: 1rem;">
+            <div class="highlight-title">💡 租车建议</div>
+            建议租一辆<strong>SUV或宽敞轿车</strong>（4人+行李），机场取车、机场还车最方便。提前在携程/神州/一嗨等平台预订，价格约200-400元/天。全程油费+过路费约500-800元，4人分摊非常划算。记得带好驾驶证！
+        </div>
+    </div>
+</section>
+
+<!-- Packing List -->
+<section class="section">
+    <div class="info-section">
+        <h2><span>🎒</span> 行前装备清单</h2>
+        <div class="packing-grid">
+            <div class="packing-card">
+                <h4>☀️ 防晒必备</h4>
+                <ul>
+                    <li>高倍防晒霜（SPF50+）</li>
+                    <li>墨镜（沙漠必备）</li>
+                    <li>遮阳帽</li>
+                    <li>防晒面巾/魔术头巾</li>
+                </ul>
+            </div>
+            <div class="packing-card">
+                <h4>👗 衣物穿搭</h4>
+                <ul>
+                    <li>薄外套（草原早晚凉）</li>
+                    <li>颜色鲜艳长裙（拍照出片）</li>
+                    <li>运动鞋（舒适为主）</li>
+                    <li>凉拖（沙漠方便）</li>
+                    <li>换洗衣物3-4套</li>
+                </ul>
+            </div>
+            <div class="packing-card">
+                <h4>🌧️ 雨具防护</h4>
+                <ul>
+                    <li>雨伞或轻便雨衣</li>
+                    <li>应对21号晚上和23号阴天</li>
+                </ul>
+            </div>
+            <div class="packing-card">
+                <h4>📱 电子设备</h4>
+                <ul>
+                    <li>充电宝（草原信号弱耗电快）</li>
+                    <li>手机防沙袋（沙漠必备）</li>
+                    <li>相机+备用电池</li>
+                    <li>车载充电器</li>
+                </ul>
+            </div>
+            <div class="packing-card">
+                <h4>💊 个人护理</h4>
+                <ul>
+                    <li>补水面膜（沙漠干燥）</li>
+                    <li>润唇膏</li>
+                    <li>常用药品（肠胃药、感冒药）</li>
+                    <li>驱蚊液</li>
+                </ul>
+            </div>
+            <div class="packing-card">
+                <h4>💰 其他物品</h4>
+                <ul>
+                    <li>身份证/驾驶证</li>
+                    <li>少量现金（草原可能信号差）</li>
+                    <li>一次性床单（蒙古包用）</li>
+                    <li>零食饮料（自驾途中）</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Budget -->
+<section class="section">
+    <div class="info-section">
+        <h2><span>💰</span> 费用预估（4人）</h2>
+        <table class="info-table">
+            <thead>
+                <tr>
+                    <th>项目</th>
+                    <th>预估费用</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>往返机票</td>
+                    <td>约 2,000-3,200 元</td>
+                    <td>4人，视预订时间而定</td>
+                </tr>
+                <tr>
+                    <td>租车（4天）</td>
+                    <td>约 1,000-1,600 元</td>
+                    <td>含保险，SUV或轿车</td>
+                </tr>
+                <tr>
+                    <td>油费+过路费</td>
+                    <td>约 500-800 元</td>
+                    <td>全程自驾</td>
+                </tr>
+                <tr>
+                    <td>住宿（4晚）</td>
+                    <td>约 1,200-2,000 元</td>
+                    <td>2间房，蒙古包+酒店</td>
+                </tr>
+                <tr>
+                    <td>门票+娱乐</td>
+                    <td>约 1,500-2,500 元</td>
+                    <td>草原、响沙湾、成吉思汗陵等</td>
+                </tr>
+                <tr>
+                    <td>餐饮（5天）</td>
+                    <td>约 1,500-2,500 元</td>
+                    <td>4人，含特色餐</td>
+                </tr>
+                <tr style="background: var(--sand-light); font-weight: 700;">
+                    <td>总计</td>
+                    <td>约 7,700-12,600 元</td>
+                    <td>人均约 1,900-3,150 元</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <h3>祝你们旅途愉快！</h3>
+    <p>草原上看星空 · 沙漠里骑骆驼 · 留下属于两对情侣的浪漫回忆</p>
+    <div class="emoji-row">🌾 🏜️ 🌌 🔥 🐫 ✨</div>
+</div>
+
+</body>
+</html>
